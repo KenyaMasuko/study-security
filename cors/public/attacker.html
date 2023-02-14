@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<title>attacker example</title>
+		<script>
+			function load() {
+				const userInfo = frm.document.querySelector("#user_info");
+				console.log(userInfo.textContent);
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<!-- 罠ページのコンテンツ -->
+		</div>
+
+		<!-- ユーザー情報をiframeで埋め込む -->
+		<iframe
+			name="frm"
+			onload="load()"
+			src="http://site.example:3000/user.html"
+			width="80%"></iframe>
+	</body>
+</html>
