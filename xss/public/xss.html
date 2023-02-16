@@ -14,6 +14,16 @@
 				const textNode = document.createTextNode(message);
 				document.querySelector("#result").appendChild(textNode);
 			}
+
+			const urlStr = url.searchParams.get("url");
+			if (urlStr !== null) {
+				const linkUrl = new URL(urlStr, url.origin);
+				if (linkUrl.protocol === "http" || linkUrl.protocol === "https") {
+					document.querySelector("#link").href = linkUrl;
+				} else {
+					console.log("httpまたはhttps以外のURLが指定されています");
+				}
+			}
 		</script>
 	</body>
 </html>
