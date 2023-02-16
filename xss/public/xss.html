@@ -2,6 +2,7 @@
 <html lang="ja">
 	<head>
 		<title>XSS検証ページ</title>
+		<script src="./purify.js"></script>
 	</head>
 	<body>
 		<h1>XSS検証ページ</h1>
@@ -11,8 +12,8 @@
 			const url = new URL(location.href);
 			const message = url.searchParams.get("message");
 			if (message !== null) {
-				const textNode = document.createTextNode(message);
-				document.querySelector("#result").appendChild(textNode);
+				const sanitizedMessage = DOMPurify.sanitize(message);
+				document.querySelector("#result").innerHTML = sanitizedMessage;
 			}
 
 			const urlStr = url.searchParams.get("url");
