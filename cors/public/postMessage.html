@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button id="open">Open new tab</button>
+		<button id="send">Send</button>
+		<script>
+			let popupWindow;
+			const origin = "http://site.example:3000";
+			document.querySelector("#open").addEventListener("click", () => {
+				popupWindow = window.open(origin + "/child.html");
+			});
+			document.querySelector("#send").addEventListener("click", () => {
+				popupWindow.postMessage("Hello", origin);
+			});
+			window.addEventListener("message", (e) => {
+				if (e.origin === origin) {
+					alert(e.data);
+				}
+			});
+		</script>
+	</body>
+</html>
