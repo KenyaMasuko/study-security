@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>CSRF検証ページ</title>
+</head>
+<body>
+	<form id="remit" action="/csrf/remit" method="POST">
+		<div>
+			<label for="to">送信先</label>
+				<input type="text" name="to" id="to" required>
+		</div>
+		<div>
+			<label for="to">金額</label>
+				<input type="text" name="amount" id="amount" required>
+		</div>
+<div>
+	<button type="submit">送金</button>
+</div>
+	</form>
+</body>
+</html>
