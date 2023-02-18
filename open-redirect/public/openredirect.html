@@ -8,7 +8,14 @@
 	<script>
 		const url = new URL(location.href)
 		const redirectUrl = url.searchParams.get('url')
-		location.href = redirectUrl;
+		if(redirectUrl) {
+			const redirectUrlObj = new URL(redirectUrl, location.href)
+
+			if(redirectUrlObj.origin === location.origin ||
+			confirm(`${redirectUrl}へリダイレクトしようとしています。よろしいでしょうか？`)) {
+				location.href = redirectUrl;
+			}
+		}
 	</script>
 </body>
 </html>
