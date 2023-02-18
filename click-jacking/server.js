@@ -3,14 +3,20 @@ const api = require("./routes/api");
 const app = express();
 const port = 3000;
 
-app.use(express.static("public"));
+app.use(
+	express.static("public", {
+		setHeaders: (res, path, stat) => {
+			res.header("X-Frame-Options", "SAMEORIGIN");
+		},
+	})
+);
 
 app.use("/api", api);
 
 app.get("/", (req, res, next) => {
-  res.end("Top Page");
+	res.end("Top Page");
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+	console.log(`Server is running on http://localhost:${port}`);
 });
