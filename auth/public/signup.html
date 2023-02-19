@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<title>アカウント作成</title>
+		<link rel="stylesheet" href="./signup.css">
+</head>
+<body>
+	<form id="signup" action="/signup" method="post">
+		<fieldset>
+			<legend>アカウント作成</legend>
+				<div>
+					<label for="username">メールアドレス</label>
+					<input id="username" type="text" name="username" class="signup-input">
+				</div>
+				<div>
+					<label for="username">パスワード</label>
+					<input id="password" type="text" name="password" class="signup-input">
+				</div>
+				<p><small>パスワードには8文字以上の英数字を入力してください</small></p>
+				<button id="submit" type="submit">アカウントを作成</button>
+		</fieldset>
+	</form>
+</body>
+</html>
