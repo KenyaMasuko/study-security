@@ -12,3 +12,7 @@
 	margin: 5px 0;
 	width: 100%;
 }
+
+.signup-input:invalid {
+	background-color: #FFD9D9;
+}
